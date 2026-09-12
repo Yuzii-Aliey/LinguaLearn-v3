@@ -1,0 +1,35 @@
+{
+  "name": "lingualearn",
+  "private": true,
+  "version": "3.0.0",
+  "description": "LinguaLearn - one language-learning platform, four courses (French, Spanish, Japanese, Italian), 20 stages each",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --harmony-optional-chaining --harmony-nullish tests/runner.mjs",
+    "test:runtime": "node --harmony-optional-chaining --harmony-nullish tests/runtime-harness.mjs",
+    "test:cross": "node --harmony-optional-chaining --harmony-nullish tests/cross-language-test.mjs",
+    "test:all": "npm test && npm run test:runtime && npm run test:cross",
+    "test:watch": "node --harmony-optional-chaining --harmony-nullish tests/runner.mjs --watch",
+    "test:e2e": "playwright test",
+    "lint": "eslint src netlify tests/unit"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "idb": "^8.0.0",
+    "drizzle-orm": "^0.36.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10",
+    "vitest": "^2.1.8",
+    "vite-plugin-pwa": "^0.21.0",
+    "sharp": "^0.33.5",
+    "@playwright/test": "^1.49.0",
+    "eslint": "^9.0.0"
+  }
+}

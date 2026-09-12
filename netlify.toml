@@ -1,0 +1,28 @@
+# Netlify build & functions configuration.
+# Identity is enabled per-site in the Netlify UI (no toml key required).
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  # Bundle node modules into each function at deploy time
+  included_files = ["netlify/shared/**"]
+
+# The service worker must never cache /api/ responses — matches the
+# navigateFallbackDenylist in vite.config.js.
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA fallback for client-side routes (app is a single screen flow)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

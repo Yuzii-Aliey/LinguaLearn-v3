@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn languages with interactive lessons - A Duolingo-style learning platform">
+    <meta name="theme-color" content="#58cc02">
+    <title>LinguaLearn - Master Languages Interactively</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <!-- Stylesheets (transformed + hashed by Vite at build time) -->
+    <link rel="stylesheet" href="/src/css/main.css">
+    <!-- Onboarding wizard styles (scoped: only affects the first-visit flow) -->
+    <link rel="stylesheet" href="/src/css/onboarding.css">
+    <!-- Language world styles (scoped: star path + French world dressing) -->
+    <link rel="stylesheet" href="/src/css/french-world.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <button class="logo" type="button" aria-label="Go to dashboard">
+                <span class="logo-icon" aria-hidden="true">
+                    <!-- Mascot mark: green circle character with big eyes -->
+                    <svg viewBox="0 0 120 120" width="40" height="40" focusable="false">
+                        <circle cx="60" cy="66" r="44" fill="#89e219"/>
+                        <ellipse cx="60" cy="84" rx="34" ry="26" fill="#58cc02"/>
+                        <circle cx="45" cy="52" r="18" fill="#ffffff"/>
+                        <circle cx="75" cy="52" r="18" fill="#ffffff"/>
+                        <circle cx="45" cy="52" r="8" fill="#3c3c3c"/>
+                        <circle cx="75" cy="52" r="8" fill="#3c3c3c"/>
+                        <circle cx="48" cy="49" r="2.5" fill="#ffffff"/>
+                        <circle cx="78" cy="49" r="2.5" fill="#ffffff"/>
+                        <path d="M52 68 q8 10 16 0" stroke="#3c3c3c" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="50" cy="27" r="6" fill="#ffc800"/>
+                        <circle cx="70" cy="27" r="6" fill="#ffc800"/>
+                    </svg>
+                </span>
+                <span class="logo-text">LinguaLearn</span>
+            </button>
+            <div class="user-stats">
+                <div class="streak stat-item" title="Daily streak">
+                    <span class="stat-icon" aria-hidden="true">🔥</span>
+                    <span id="streak-display">0</span>
+                </div>
+                <div class="stat-item" title="Total XP">
+                    <span class="stat-icon" aria-hidden="true">💎</span>
+                    <span id="xp-display">0</span>
+                </div>
+                <button id="sound-toggle" class="sound-toggle" type="button"
+                        aria-label="Mute interface sounds" aria-pressed="false" title="Sound on/off"></button>
+                <button id="auth-button" class="auth-button" type="button" aria-label="Sign in to sync progress">Sign in</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="hidden"></div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="hidden"></div>
+
+        <section id="lesson-screen" class="hidden"></section>
+        <section id="results-screen" class="hidden"></section>
+    </div>
+
+    <!-- Achievement Container -->
+    <div id="achievement-container" aria-live="polite"></div>
+
+    <!-- Loading indicator (mascot-marked; understandable without animation) -->
+    <div id="loading-indicator" class="hidden" role="status" aria-label="Loading">
+        <div class="spinner"></div>
+        <span class="loading-text">Loading…</span>
+    </div>
+
+    <!-- Main JavaScript Module (bundled + hashed by Vite at build time) -->
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
